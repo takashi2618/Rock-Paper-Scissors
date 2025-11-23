@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>ジャンケンゲーム</title>
+    <meta name="viewport" content="width = device-width" />
+  </head>
+  <body>
+    <h1>ジャンケンゲーム</h1>
+    <p>ボタンを選択してください:</p>
+    <button onclick="btn1()">グー</button>
+    <button onclick="btn2()">チョキ</button>
+    <button onclick="btn3()">パー</button>
+
+    <p>結果</p>
+    <p id="result">📣最初は✊、ジャンケン！</p>
+
+    <script>
+      // CPUの乱数
+      function getCpuHand() {
+        const num = Math.floor(Math.random() * 3);
+        let cpuHand;
+
+        if (num === 0) {
+          cpuHand = "グー";
+        } else if (num === 1) {
+          cpuHand = "チョキ";
+        } else {
+          cpuHand = "パー";
+        }
+
+        return cpuHand;
+      }
+
+      // グーボタン
+      function btn1() {
+        const cpu = getCpuHand();
+        let result;
+        if (cpu === "グー") {
+          result = "引き分け";
+        } else if (cpu === "チョキ") {
+          result = "あなたの勝ちです";
+        } else {
+          result = "あなたの負けです";
+        }
+        const output1 = document.getElementById("result");
+        output1.innerHTML = "あなた: グー / CPU: " + cpu + " → " + result;
+      }
+
+      // チョキボタン
+      function btn2() {
+        const cpu = getCpuHand();
+        let result;
+        if (cpu === "チョキ") {
+          result = "引き分け";
+        } else if (cpu === "パー") {
+          result = "あなたの勝ちです";
+        } else {
+          result = "あなたの負けです";
+        }
+        const output1 = document.getElementById("result");
+        output1.innerHTML = "あなた: チョキ / CPU: " + cpu + " → " + result;
+      }
+
+      // パーボタン
+      function btn3() {
+        const cpu = getCpuHand();
+        let result;
+        if (cpu === "パー") {
+          result = "引き分け";
+        } else if (cpu === "グー") {
+          result = "あなたの勝ちです";
+        } else {
+          result = "あなたの負けです";
+        }
+        const output1 = document.getElementById("result");
+        output1.innerHTML = "あなた: パー / CPU: " + cpu + " → " + result;
+      }
+    </script>
+  </body>
+</html>
